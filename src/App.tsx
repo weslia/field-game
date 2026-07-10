@@ -2,10 +2,10 @@ import { useState } from 'react'
 
 import './App.css'
 
-import HomeView from './views/HomeView'
-import CommanderView from './views/CommanderView'
-import AgentView from './views/AgentView'
-import type { AppView, Coordinate } from './types'
+import HomeView from './views/HomeView'             // 頁面跳轉程式碼
+import CommanderView from './views/CommanderView'   // 指揮官功能程式碼
+import AgentView from './views/AgentView'           // 特務功能程式碼
+import type { AppView, Coordinate } from './types'  // 儲存頁面跳轉狀態、(x, y)座標
 
 function App() {
   const [view, setView] = useState<AppView>('home')

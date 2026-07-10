@@ -2,6 +2,14 @@
   min-height: 100svh;
   display: flex;
   flex-direction: column;
+
+  /* ─── 新增背景圖片設定 ─── */
+  background-image: url('src/assets/HomeViewBG.png'); /* 請替換成你專案中實際的圖片路徑 */
+  background-size: cover;                              /* 關鍵：等比例滿版、不變形 */
+  background-position: center;                         /* 關鍵：圖片置中對齊 */
+  background-repeat: no-repeat;                        /* 防止圖片重複平鋪 */
+  /* 如果你希望白色畫面設計，可以給容器一個白色的底色，確保圖片沒載入時也是白底 */
+  background-color: #ffffff;
 }
 
 .hero {

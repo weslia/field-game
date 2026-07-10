@@ -14,9 +14,9 @@ function HomeView({ onSelectView }: HomeViewProps) {
       <section className="hero">
         <div className="hero-content">
           <p className="eyebrow">Field Game</p>
-          <h1>這是一個陣營大地遊戲</h1>
+          <h1>集結吧！Agent！</h1>
           <p className="hero-description">
-            建立活動房間、設定目標點，讓指揮官掌握特工位置，讓特工依照方向與距離前進。
+            選擇，你的身份：
           </p>
 
           <div className="role-actions">
