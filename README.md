@@ -1,75 +1,112 @@
-# React + TypeScript + Vite
+# Field Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+戶外陣營大地遊戲平台原型。這個專案目標是協助團康活動進行，讓指揮官可以在地圖上設定集結目標，讓特工透過手機定位取得自己的座標，並計算前往目標點的距離與方位。
 
-Currently, two official plugins are available:
+## Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+GitHub Pages:
 
-## React Compiler
+https://weslia.github.io/field-game/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Current Features
 
-## Expanding the ESLint configuration
+- 首頁角色選擇：指揮官 / 特工
+- 指揮官控制台：MapLibre 地圖顯示
+- 指揮官可點擊地圖設定目標點
+- 特工端可啟用瀏覽器 GPS 定位
+- 特工端可計算與目標點的距離
+- 特工端可計算目標方位角
+- GitHub Actions 自動部署到 GitHub Pages
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Vite
+- React
+- TypeScript
+- MapLibre GL JS
+- Supabase JavaScript client
+- Lucide React
+- GitHub Pages
+- GitHub Actions
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Project Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```txt
+src/
+  components/
+    CommanderMap.tsx
+  utils/
+    geo.ts
+  views/
+    HomeView.tsx
+  App.css
+  App.tsx
+  index.css
+  main.tsx
+  types.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Local Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Install dependencies:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```powershell
+npm.cmd install
 ```
+
+Start the development server:
+
+```powershell
+npm.cmd run dev
+```
+
+Build for production:
+
+```powershell
+npm.cmd run build
+```
+
+Run lint:
+
+```powershell
+npm.cmd run lint
+```
+
+Preview the production build locally:
+
+```powershell
+npm.cmd run preview
+```
+
+## Deployment
+
+This project deploys to GitHub Pages through GitHub Actions.
+
+Important Vite setting:
+
+```ts
+base: '/field-game/'
+```
+
+The value must match the GitHub repository name because the site is deployed under:
+
+```txt
+https://weslia.github.io/field-game/
+```
+
+## Development Notes
+
+- GPS features require browser location permission.
+- `localhost` can use Geolocation during development.
+- A deployed production site must use HTTPS for Geolocation.
+- Current target sharing is local React state only. It works within the same browser session but is not yet synchronized between different devices.
+- The next backend step is to connect Supabase for activity rooms, shared targets, and realtime agent locations.
+
+## Next Milestones
+
+- Split `CommanderView` and `AgentView` into separate files.
+- Add activity room code flow.
+- Add Supabase environment configuration.
+- Store target points in Supabase.
+- Sync target updates through Supabase Realtime.
+- Send agent location updates to the commander view.
