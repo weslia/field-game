@@ -224,3 +224,48 @@ button {
 .error-text {
   color: #f87171;
 }
+
+.session-code {
+  display: grid;
+  gap: 6px;
+  margin: 16px 0 20px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.session-code span {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.session-code strong {
+  color: var(--text-h);
+  font-family: var(--mono);
+  font-size: 28px;
+  letter-spacing: 0.12em;
+}
+
+.join-panel {
+  width: min(360px, 100%);
+  display: grid;
+  gap: 12px;
+}
+
+.join-form {
+  display: grid;
+  gap: 10px;
+}
+
+.join-form input {
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0 14px;
+  color: var(--text-h);
+  background: var(--bg);
+  font: inherit;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}

@@ -5,6 +5,10 @@ export type Coordinate = { // 用來儲存
   lat: number
 }
 
+export type ActivitySession = {
+  code: string
+}
+
 export type LocationState = // 特攻的定位穩定度狀態標示
   | { status: 'idle' }
   | { status: 'watching' }
